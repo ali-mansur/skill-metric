@@ -1,0 +1,13 @@
+<form>
+	<div class="form-group">
+	<label>
+		Skills
+	</label>
+	<textarea class="form-control" placeholder="Enter your skills" [(ngModel)]="skillsString" name="skills" (blur)="onBlur()"> </textarea> 
+	<!-- <li *ngFor="let item of skills | async">
+		{{item.skills}}
+	</li> -->
+	{{skillsString}}
+	<ng-content></ng-content>
+	</div>
+</form>
