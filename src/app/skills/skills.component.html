@@ -1,13 +1,38 @@
 <form>
 	<div class="form-group">
-	<label>
-		Skills
-	</label>
-	<textarea class="form-control" placeholder="Enter your skills" [(ngModel)]="skillsString" name="skills" (blur)="onBlur()"> </textarea> 
-	<!-- <li *ngFor="let item of skills | async">
-		{{item.skills}}
-	</li> -->
-	{{skillsString}}
-	<ng-content></ng-content>
+
+		<div>
+			<h4>
+				Choose your skill(s) below
+			</h4>
+		
+			<div class="row">
+			  <div *ngFor="let item of skills | async" class="col-sm-4">
+			  	<input type="checkbox" (click)="addSkill(item,item.selected)" name="skill" style="padding: 5px;"> {{item.skills}}
+			  </div>
+			</div>
+			<ng-content></ng-content>
+		</div>
+
+		<br><br>
+
+		<!-- *ngIf="selectedSkills.length" -->
+		<div *ngIf="selectedSkills.length">
+			<h4>
+				Selected Skills 
+			</h4>
+
+	 		<ul>
+				<li *ngFor="let object of selectedSkills" class="selected-skill some">
+					{{object.skills}} <span (click)="removeSkill(object)" class="remove-skill" title="deselect">x</span>
+				</li>
+			</ul>
+			<div style="clear: both;"></div>
+			
+			<!-- <p class="text-right ">
+				<span (click)="deSelectAll();" class="nounderline c-s" title="deselect All"> clear </span>
+			</p> -->
+		</div>
+
 	</div>
 </form>

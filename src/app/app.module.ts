@@ -13,6 +13,7 @@ import { SkillsComponent } from './skills/skills.component';
 import { SkillsscoreComponent } from './skillsscore/skillsscore.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,

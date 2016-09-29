@@ -5,35 +5,50 @@ import { SkillService }  from './skills.service';
 
 @Component({
   selector: 'app-skills',
+  inputs: ['skills:skills', 'selectedSkills:selectedSkills'],
   templateUrl: './skills.component.html',
   styleUrls: ['./skills.component.css'],
   providers: [SkillService]
 })
-export class SkillsComponent implements OnInit {
-	//let skills: object[] =[];
-  skillsString: string ="";
-	skills: Object[] = [];
-	//skills=[]
-
-  constructor(private SkillServiceSearch: SkillService) { 
-	
-  }
-
-  ngOnInit() {
-  	this.skills = this.SkillServiceSearch.getskills();
-  	console.log('this.skills',this.skills);
-  }
-
-  onBlur() {
-        var str = this.skillsString;
-        var str_array = str.split(',');
-
-        for(var i = 0; i < str_array.length; i++) {
-           // Trim the excess whitespace.
-           str_array[i] = str_array[i].replace(/^\s*/, "").replace(/\s*$/, "");
-           // Add additional code here, such as:
-           console.log(str_array[i]);
+export class SkillsComponent {
+  addSkill(skillObject){
+    let isDuplicate = false;
+    for(var iterator = 0; iterator < this.selectedSkills.length; iterator++) {
+        if(skillObject["skills"]==this.selectedSkills[iterator]["skills"]){
+          isDuplicate = true;
+          break;
         }
     }
+
+    if(!isDuplicate){
+      this.selectedSkills.push(skillObject)
+      for(var iterator = 0; iterator < this.skills["__zone_symbol__value"].length; iterator++) {
+        if(skillObject.skills==this.skills["__zone_symbol__value"][iterator].skills){
+          this.skills["__zone_symbol__value"].splice(iterator, 1)
+          break;
+        }
+      }
+      
+    }
+    console.log(this.skills);
+  }
+
+  removeSkill(object){
+    for(let iterator = 0; iterator < this.selectedSkills.length; iterator++) {
+        if(object.skills==this.selectedSkills[iterator]["skills"]){
+          this.selectedSkills.splice(iterator, 1);
+          this.skills["__zone_symbol__value"].push(object)
+        }
+    }
+    // console.log(this.skills);
+    console.log(this.selectedSkills);
+  }
+
+  deSelectAll(){
+
+   console.log('asd', this.selectedSkills);
+    this.selectedSkills;
+   //console.log(this.selectedSkills);
+  }
 
 }

@@ -1,26 +1,23 @@
 /* tslint:disable:no-unused-variable */
 import { provide }    from '@angular/core';
 import { TestBed, async, inject, addProviders } from '@angular/core/testing';
-import { SkillsserviceService } from './skillsservice.service';
+// import { SkillsserviceService } from './skillsservice.service';
 import { SkillService } from './skills.service';
 import { Http, Response, RequestMethod, BaseRequestOptions, ConnectionBackend, RequestOptions, RequestOptionsArgs} from '@angular/http';
 
 import {MockBackend} from '@angular/http/testing';
 
 
-
-console.log("MockBackend : "+Http);
-
-
 describe('Service: Skillsservice', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [SkillService, Http, MockBackend, ConnectionBackend, RequestOptions, RequestOptionsArgs]
+      providers: [SkillService, Http, MockBackend, ConnectionBackend, RequestOptions]
     });
   });
 
-  it('should false this test...', inject([SkillService, MockBackend], (service: SkillService) => {
-  	console.log(service);
+  it('testing a http service ...', inject([SkillService], (service: SkillService) => {
     expect(service).toBeTruthy();
+    console.log(service);
   }));
+
 });
