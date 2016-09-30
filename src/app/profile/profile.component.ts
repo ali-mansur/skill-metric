@@ -9,7 +9,7 @@ import { Component } from '@angular/core';
 export class ProfileComponent  {
 
 	submit(){
-		console.log(this.user);
+		//console.log(this.user);
 	}
 
 }

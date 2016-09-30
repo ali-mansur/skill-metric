@@ -11,6 +11,8 @@ import { OtherComponent } from './other/other.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SkillsComponent } from './skills/skills.component';
 import { SkillsscoreComponent } from './skillsscore/skillsscore.component';
+import { SkillMatrixProfileComponent } from './skill-matrix-profile/skill-matrix-profile.component';
+import { UserListComponent } from './user-list/user-list.component';
 
 
 
@@ -20,7 +22,9 @@ import { SkillsscoreComponent } from './skillsscore/skillsscore.component';
     OtherComponent,
     ProfileComponent,
     SkillsComponent,
-    SkillsscoreComponent
+    SkillsscoreComponent,
+    SkillMatrixProfileComponent,
+    UserListComponent
   ],
   imports: [
     BrowserModule,

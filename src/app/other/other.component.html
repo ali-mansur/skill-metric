@@ -16,9 +16,10 @@
 			</app-skillsscore>
 		</div>
 	</div>
-	<button kendoButton (click)="onButtonClick()" [primary]=true>Submit</button>
+	
 </div> -->
 
+<!--<button kendoButton (click)="onButtonClick()" [primary]=true>Submit</button>-->
 <div>
 	<nav class="navbar navbar-default">
 	  <div class="container-fluid">
@@ -26,8 +27,8 @@
 	      <a class="navbar-brand" href="#">Skill Metric</a>
 	    </div>
 	    <ul class="nav navbar-nav">
-	      <li class="active"><a href="#">Edit</a></li>
-	      <li><a routerLink="/skill">read</a></li>
+	      <!-- <li class="active"><a href="#">Edit</a></li>
+	      <li><a routerLink="/skill">read</a></li> -->
 	    </ul>
 	  </div>
 	</nav>
@@ -40,8 +41,8 @@
 		</div>
 		<div class="col-lg-7">
 			<div>
-				{{ skillComponentObject.selectedSkills | json }}
-				<app-skills [skills]="skillComponentObject.skills" [selectedSkills]="skillComponentObject.selectedSkills">
+			   
+				<app-skills [skills]="skillComponentObject.skills" [selectedSkills]="skillComponentObject.selectedSkills" [removeall] = 'removeall'>
 				</app-skills>
 			</div>
 <!-- 			<div>

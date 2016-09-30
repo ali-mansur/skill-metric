@@ -1,17 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Input, Component, OnInit } from '@angular/core';
 import { Observable }        from 'rxjs/Observable';
 import { Subject }           from 'rxjs/Subject';
-import { SkillService }  from './skills.service';
+import { SkillService }  from './skills.service';//
 
 @Component({
   selector: 'app-skills',
-  inputs: ['skills:skills', 'selectedSkills:selectedSkills'],
+  inputs: ['skills:skills', 'selectedSkills:selectedSkills','removeall:removeall'],
   templateUrl: './skills.component.html',
   styleUrls: ['./skills.component.css'],
   providers: [SkillService]
 })
 export class SkillsComponent {
+  public skills;
+  public selectedSkills;
   addSkill(skillObject){
+
     let isDuplicate = false;
     for(var iterator = 0; iterator < this.selectedSkills.length; iterator++) {
         if(skillObject["skills"]==this.selectedSkills[iterator]["skills"]){
@@ -43,12 +46,8 @@ export class SkillsComponent {
     // console.log(this.skills);
     console.log(this.selectedSkills);
   }
-
-  deSelectAll(){
-
-   console.log('asd', this.selectedSkills);
-    this.selectedSkills;
-   //console.log(this.selectedSkills);
-  }
+  //@Input()
+  //OtherComponent:OtherComponent;
+  public removeall:Function;
 
 }

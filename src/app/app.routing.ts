@@ -4,6 +4,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { AppComponent }      from './app.component';
 import { OtherComponent }      from './other/other.component';
 import { SkillsComponent }      from './skills/skills.component';
+import { UserListComponent } from './user-list/user-list.component';
+
 
 const appRoutes: Routes = [
   {
@@ -11,8 +13,8 @@ const appRoutes: Routes = [
     component: OtherComponent
   },
   {
-    path: 'skill',
-    component: SkillsComponent
+    path: 'profile',
+    component: UserListComponent
   },
   {
   path: '',

@@ -1,0 +1,70 @@
+[
+    {
+        "eId" : "1",
+        "name":"Chaitanya Chauhan", 
+        "designation":"Sr. UI Developer", 
+        "profileImage":"../assets/images/defaultDP.jpeg", 
+        "skills":[
+            {
+                "skill": "HTML",
+                "rate": "8"
+            },
+            {
+                "skill": "JS",
+                "rate": "8"
+            },
+            {
+                "skill": "jQuery",
+                "rate": "8"
+            },
+            {
+                "skill": "Angular 2",
+                "rate": "8"
+            }
+        ]
+    },
+    {
+        "eId" : "2",
+        "name":"Ajit Nayak", 
+        "designation":"UX Designer", 
+        "profileImage":"../assets/images/defaultDP.jpeg", 
+        "skills":[
+            {
+                "skill": "Photoshop",
+                "rate": "7"
+            },
+            {
+                "skill": "Firework",
+                "rate": "8"
+            }
+        ]
+    },
+    {
+        "eId" : "3",
+        "name":"Rishabh", 
+        "designation":"Sr. UI Developer", 
+        "profileImage":"../assets/images/defaultDP.jpeg", 
+        "skills":[
+            {
+                "skill": "AngularJS",
+                "rate": "9"
+            },
+            {
+                "skill": "HTML",
+                "rate": "8"
+            },
+            {
+                "skill": "JS",
+                "rate": "8"
+            },
+            {
+                "skill": "jQuery",
+                "rate": "8"
+            },
+            {
+                "skill": "XML",
+                "rate": "8"
+            }
+        ]
+    }  
+]

@@ -1,0 +1,6 @@
+<div class="user-list-wrapper">
+	<ul>
+		<li *ngFor = "let user of users | async" (click)="showProfileDetails(user)">{{user.name}}</li>
+	</ul>
+</div>
+<app-skill-matrix-profile [_SkillMatrixProfileData]="_selectedProfileDetails"></app-skill-matrix-profile>

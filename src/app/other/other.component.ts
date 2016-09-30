@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Injectable, Component } from '@angular/core';
 import { SkillService }  from '../skills/skills.service';
 
 @Component({
@@ -7,10 +7,11 @@ import { SkillService }  from '../skills/skills.service';
   styleUrls: ['./other.component.css'],
   providers: [SkillService]
 })
+@Injectable()
 export class OtherComponent {
 	
 	
-	skillComponentObject: Object = {
+	public skillComponentObject: any = {
 		skills : [],
 		selectedSkills: []
 	};
@@ -18,15 +19,18 @@ export class OtherComponent {
 	constructor(private SkillServiceSearch: SkillService) { 
 	
   	}
-
+  	public removeall = Function;
   	ngOnInit() {
 	  	this.skillComponentObject.skills = this.SkillServiceSearch.getskills();
-	    console.log(this.skills)
+	    //console.log(this.skills)
+	    this.removeall = this.deselectAll.bind(this);
 	    // this.skills = this.skillss.__zone_symbol__value;
 	}
 
-	onButtonClick() {
-        alert('Hello from Kendo UI!');
+	public deselectAll() {
+        this.skillComponentObject.selectedSkills = [];
+	  	this.skillComponentObject.skills = this.SkillServiceSearch.getskills();
+
     }
 
     profile = {
