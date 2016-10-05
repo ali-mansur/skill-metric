@@ -1,33 +1,46 @@
-<div class="skill-matrix-profile-wrapper col-xs-12 ">
+<div class="skill-matrix-profile-container">
+<link rel="stylesheet" href="http://www.telerik.com/kendo-angular-ui/npm/node_modules//@telerik/kendo-theme-default/dist/all.css" />
+	<div class="skill-matrix-profile-wrapper col-xs-12" >
 	<h1>Profile Introduction - Skill Matrix</h1>
 	<div class="row">
 		<div class="col-sm-6 col-xs-12 left-col">
 			<div class="profile-image-box">
-				<img class="img-circle" src="{{_SkillMatrixProfileData.profileImage}}"/>	
+				<img class="img-circle" src="../../assets/images/defaultDP.jpeg"/>	
 			</div>
 			<div class="profile-left-data">
-				<h2 class="profile-name">{{ _SkillMatrixProfileData.name }}</h2>
-				<p class="profile-designation">{{ _SkillMatrixProfileData.designation }}</p>
+				<h2 class="profile-name">{{ returnObject.name }}</h2>
+				<p class="profile-designation">{{ returnObject.designation }}</p>
 			</div>
 		</div>
 		<div class="col-sm-6 col-xs-12 right-col">
+			<h3>Skills</h3>
 			<div class="profile-skills">
 				<ul>
-					<li *ngFor= "let skillItem of _SkillMatrixProfileData.skills">{{ skillItem.skill }}</li>
+					<li *ngFor= "let skillItem of returnObject.skills">{{ skillItem.skill }}</li>
 				</ul>
 			</div>
 			<div class="profile-skills-graph-container">
-				 <!--  <kendo-chart>
-          <kendo-chart-category-axis>
-            <kendo-chart-category-axis-item [categories]={{ _SkillMatrixProfileData.skills | json }}>
-            </kendo-chart-category-axis-item>
-          </kendo-chart-category-axis>
-          <kendo-chart-series>
-            <kendo-chart-series-item type="bar" [data]={{ _SkillMatrixProfileData.values[0] }}>
-            </kendo-chart-series-item>
-          </kendo-chart-series>
-        </kendo-chart>   -->
+				  	<kendo-chart >
+				  	  <kendo-chart-title text="{{ returnObject.designation }} Score card - {{ chartObject.getTotalSum }}% Match" color ="#337ab7" ></kendo-chart-title>
+				  	  <kendo-chart-value-axis>
+              <kendo-chart-value-axis-item [min]="0" [max]="10" >
+             </kendo-chart-value-axis-item>
+              <kendo-chart-series-defaults >
+            <kendo-chart-series-defaults-labels format="c">
+            </kendo-chart-series-defaults-labels>
+          </kendo-chart-series-defaults>
+          </kendo-chart-value-axis>
+			          <kendo-chart-category-axis>
+			            <kendo-chart-category-axis-item  [categories]="chartObject.skills">
+			            </kendo-chart-category-axis-item>
+			          </kendo-chart-category-axis>
+			          <kendo-chart-series>
+			            <kendo-chart-series-item  type="bar" color="#337ab7" [data]="chartObject.rates">
+			            </kendo-chart-series-item>
+			          </kendo-chart-series>
+			        </kendo-chart>
 			</div>
 		</div>
-	</div>
+	</div> 
+</div>
 </div>

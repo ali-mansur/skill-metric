@@ -4,9 +4,18 @@
     float: left;
     border-radius: 5px;
     border: 1px solid #ccc;
-    margin: 5px;
+    margin: 10px;
 }
 
+.skill-name{
+    padding-left: 8px;
+}
+
+.skill-rate{
+    color: #ff6358;
+    font-weight: bold;
+
+}
 .some{
 
 
@@ -26,16 +35,33 @@
 }
 
 .c-s{
+}
+.c-s:hover{
     cursor: pointer;
+    color: red;
+}
+
+.selected-skills-container ul{
+    padding: 0px;
 }
 
 .remove-skill{
 	cursor: pointer; padding: 5px;
-	font-weight: bold;
+	background: white;
+    border: 1px solid #ff6358;
+    border-radius: 10px;
+    padding: 0px 4px;
+    position: relative;;
+    top: -15px;
+    right: -15px;
+    color: #ff6358;
+
+
 }
-.remove-skill:hover{
-	color: red;
-}
+/*.remove-skill:hover{
+	
+    border: 1px solid red;
+}*/
 
 .selected-skill-container{
 	display: block;
@@ -54,4 +80,9 @@
     -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
     -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
     transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+
+.skills-component .k-slider-horizontal{
+    width: 228px;
+    vertical-align: middle;
 }

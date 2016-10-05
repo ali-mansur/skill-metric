@@ -1,8 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { ButtonsModule } from '@progress/kendo-angular-buttons';
+import { InputsModule } from '@progress/kendo-angular-inputs';
+import { ChartsModule } from '@progress/kendo-angular-charts';
 
 import { AppComponent } from './app.component';
 import { routing } from './app.routing';
@@ -29,9 +31,12 @@ import { UserListComponent } from './user-list/user-list.component';
   imports: [
     BrowserModule,
     ButtonsModule,
+    InputsModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpModule,
-    routing
+    routing,
+    ChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

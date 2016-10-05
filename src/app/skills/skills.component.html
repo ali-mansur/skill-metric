@@ -1,38 +1,61 @@
-<form>
-	<div class="form-group">
 
-		<div>
-			<h4>
-				Choose your skill(s) below
-			</h4>
-		
-			<div class="row">
-			  <div *ngFor="let item of skills | async" class="col-sm-4">
-			  	<input type="checkbox" (click)="addSkill(item,item.selected)" name="skill" style="padding: 5px;"> {{item.skills}}
-			  </div>
+<div class="form-group skills-component" [formGroup]="formgroup">
+
+	<div>
+		<h4>
+			Choose your skill(s) below
+		</h4>
+	
+		<div class="row">
+		  <div *ngFor="let item of skills | async" class="col-sm-4">
+		  	<input type="checkbox" (click)="addSkill(item)" name="skill" style="padding: 5px;"> {{item.skill}}
+		  </div>
+		</div>
+		<ng-content></ng-content>
+	</div>
+
+	<br><br>
+
+	<!-- *ngIf="selectedSkills.length" -->
+	<div *ngIf="selectedSkills.length" class="selected-skills-container">
+	<link rel="stylesheet" href="http://www.telerik.com/kendo-angular-ui/npm/node_modules//@telerik/kendo-theme-default/dist/all.css" />
+		<div style="float:left; width:100%;">
+			<p class="pull-left">
+				 * Rate yourself out of 10 for Selected Skill(s)
+			</p>
+			<div class="pull-right">
+			<span (click)="removeall();" class="nounderline c-s" title="deselect All"> Deselect All </span>
 			</div>
-			<ng-content></ng-content>
 		</div>
 
-		<br><br>
-
-		<!-- *ngIf="selectedSkills.length" -->
-		<div *ngIf="selectedSkills.length">
-			<h4>
-				Selected Skills 
-			</h4>
-
+		
+		<div>
 	 		<ul>
-				<li *ngFor="let object of selectedSkills" class="selected-skill some">
-					{{object.skills}} <span (click)="removeSkill(object)" class="remove-skill" title="deselect">x</span>
+				<li *ngFor="let object of selectedSkills" class="selected-skill">
+					<span class="skill-name">{{object.skill}} </span>
+					<!-- <input type="number" style="width: 80px" min="0" max="10" [(ngModel)]="object.rate" [ngModelOptions]="{standalone: true}"> -->
+
+					<!-- [incrementTitle]="'Inc'"
+				            [decrementTitle]="'Dec'" -->
+
+					<kendo-slider 
+						[showButtons]="showButtons"
+						[fixedTickWidth]="15"
+				        [min]="min"
+				        [max]="max"
+				        [smallStep]="smallStep"
+				        [(ngModel)] = "object.rate"
+				        [ngModelOptions]="{standalone: true}"
+				    ></kendo-slider>
+				    <span class="skill-rate"> {{ object.rate }} / 10 </span>
+					<span (click)="removeSkill(object)" class="remove-skill" title="deselect"> x</span>
 				</li>
 			</ul>
 			<div style="clear: both;"></div>
-			
-			<p class="text-right ">
-				<span (click)="removeall();" class="nounderline c-s" title="deselect All"> clear </span>
-			</p> 
 		</div>
-
+		
+		
 	</div>
-</form>
+
+</div>
+

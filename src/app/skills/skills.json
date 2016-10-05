@@ -1,82 +1,82 @@
 [
   {
     "_id": 0,
-    "skills": "Olivia"
+    "skill": "Olivia"
   },
   {
     "_id": 1,
-    "skills": "Rita"
+    "skill": "Rita"
   },
   {
     "_id": 2,
-    "skills": "Elena"
+    "skill": "Elena"
   },
   {
     "_id": 3,
-    "skills": "Leta"
+    "skill": "Leta"
   },
   {
     "_id": 4,
-    "skills": "Felicia"
+    "skill": "Felicia"
   },
   {
     "_id": 5,
-    "skills": "Margaret"
+    "skill": "Margaret"
   },
   {
     "_id": 6,
-    "skills": "Green"
+    "skill": "Green"
   },
   {
     "_id": 7,
-    "skills": "Roslyn"
+    "skill": "Roslyn"
   },
   {
     "_id": 8,
-    "skills": "Angie"
+    "skill": "Angie"
   },
   {
     "_id": 9,
-    "skills": "Mendoza"
+    "skill": "Mendoza"
   },
   {
     "_id": 10,
-    "skills": "Reba"
+    "skill": "Reba"
   },
   {
     "_id": 11,
-    "skills": "Lakeisha"
+    "skill": "Lakeisha"
   },
   {
     "_id": 12,
-    "skills": "Alyson"
+    "skill": "Alyson"
   },
   {
     "_id": 13,
-    "skills": "Gail"
+    "skill": "Gail"
   },
   {
     "_id": 14,
-    "skills": "Sherry"
+    "skill": "Sherry"
   },
   {
     "_id": 15,
-    "skills": "Hood"
+    "skill": "Hood"
   },
   {
     "_id": 16,
-    "skills": "Marva"
+    "skill": "Marva"
   },
   {
     "_id": 17,
-    "skills": "Hurley"
+    "skill": "Hurley"
   },
   {
     "_id": 18,
-    "skills": "Bernard"
+    "skill": "Bernard"
   },
   {
     "_id": 19,
-    "skills": "Terra"
+    "skill": "Terra"
   }
 ]

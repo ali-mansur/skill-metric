@@ -1,11 +1,14 @@
-<form>
-	<div class="form-group">
-	<label>
-		Skills
-	</label>
-	<input type ="text" class="form-control" placeholder="Enter your skills"> 
-	<input type ="number"  class="form-control" placeholder="Enter your score"> 
-	<button class="btn btn-primary"> add</button>
+<div class="form-group">
+	<h4>
+		Rate yourself 
+	</h4>
 
-	</div>
-</form>
+	<div class="form-group" *ngFor="let skill of skills">
+	    <div class="control-label col-md-3"> {{ skill.skills }} </div>
+	    <div class="input-group col-md-6">
+	      <!-- <input [(ngModel)]="user.name" name="name" class="form-control" placeholder="Full Name" required> -->
+	      <input placeholder="your rating..">
+	    </div>
+	</div> 
+</div>
+

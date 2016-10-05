@@ -5,6 +5,7 @@ import { AppComponent }      from './app.component';
 import { OtherComponent }      from './other/other.component';
 import { SkillsComponent }      from './skills/skills.component';
 import { UserListComponent } from './user-list/user-list.component';
+import { SkillMatrixProfileComponent } from './skill-matrix-profile/skill-matrix-profile.component';
 
 
 const appRoutes: Routes = [
@@ -14,7 +15,7 @@ const appRoutes: Routes = [
   },
   {
     path: 'profile',
-    component: UserListComponent
+    component: SkillMatrixProfileComponent
   },
   {
   path: '',

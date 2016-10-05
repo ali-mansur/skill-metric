@@ -4,12 +4,25 @@ import 'rxjs/add/operator/toPromise';
 import { skilldata } from './skills';
 @Injectable()
 export class SkillService {
+
+  private profile:{};
+
   private headers = new Headers({'Content-Type': 'application/json'});
   private skillsurl = 'app/skills/skills.json';  // URL to web api
   constructor(private http: Http) { }
   getskills (){
        return this.http.get(this.skillsurl).toPromise().then(res => res.json());
    }
+
+  setProfile (){
+    alert('hello');
+      //this.profile = profile;
+  }
+
+  getProfile (){
+      return this.profile;
+  }
+  //set
 
   /*getskills(): Promise<void> {
     return this.http.get(this.skillsurl).toPromise()

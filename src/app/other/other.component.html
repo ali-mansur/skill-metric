@@ -1,56 +1,28 @@
-<!-- <div class="row">
-	<div class="col-lg-6">
-		<app-profile>
-
-		</app-profile>
-	</div>
-	<div class="col-lg-6">
-		<div>
-			<app-skills>
-				hiasdhiashdiashdiashdiasdhiasdhaids
-			</app-skills>
-		</div>
-		<div>
-			<app-skillsscore>
-
-			</app-skillsscore>
-		</div>
-	</div>
-	
-</div> -->
-
-<!--<button kendoButton (click)="onButtonClick()" [primary]=true>Submit</button>-->
 <div>
-	<nav class="navbar navbar-default">
-	  <div class="container-fluid">
-	    <div class="navbar-header">
-	      <a class="navbar-brand" href="#">Skill Metric</a>
-	    </div>
-	    <ul class="nav navbar-nav">
-	      <!-- <li class="active"><a href="#">Edit</a></li>
-	      <li><a routerLink="/skill">read</a></li> -->
-	    </ul>
-	  </div>
-	</nav>
-
-	<div class="container">
-		<div class="col-lg-5">
-			<app-profile [usera]="profile">
-
-			</app-profile>
-		</div>
-		<div class="col-lg-7">
-			<div>
-			   
-				<app-skills [skills]="skillComponentObject.skills" [selectedSkills]="skillComponentObject.selectedSkills" [removeall] = 'removeall'>
-				</app-skills>
+	<form [formGroup]="form" (ngSubmit)="onSubmit()" >
+		<div class="container">
+		
+			<div class="col-lg-5">
+				<app-profile [formgroup]= "form">
+				</app-profile>
 			</div>
-<!-- 			<div>
-				<app-skillsscore>
 
-				</app-skillsscore>
-			</div> -->
+			<div class="col-lg-7">
+				<div>
+					<app-skills [formgroup]= "form" [skills]="skillComponentObject.skills" [selectedSkills]="skillComponentObject.selectedSkills" [removeall] = 'removeall'>
+					</app-skills>
+				</div>
+				<div>
+					<!-- <app-skillsscore [selectedSkills]="skillComponentObject.selectedSkills">
+					</app-skillsscore> -->
+				</div>
+			</div>
 		</div>
-		<!-- <button kendoButton (click)="onButtonClick()" [primary]=true>Submit</button> -->
-	</div>
+
+		<div class="text-right container">
+			<button type="submit" >Submit</button> <!-- [disabled]="!form.valid" -->
+			<!-- <button kendoButton (click)="onButtonClick()" [primary]=true>Submit</button> -->
+		</div>
+
+	</form>
 </div>

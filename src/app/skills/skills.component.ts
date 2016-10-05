@@ -1,23 +1,47 @@
 import { Input, Component, OnInit } from '@angular/core';
 import { Observable }        from 'rxjs/Observable';
 import { Subject }           from 'rxjs/Subject';
-import { SkillService }  from './skills.service';//
+import { SkillService }  from './skills.service';
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-skills',
-  inputs: ['skills:skills', 'selectedSkills:selectedSkills','removeall:removeall'],
+  inputs: ['skills:skills', 'selectedSkills:selectedSkills','removeall:removeall', 'formgroup'],
   templateUrl: './skills.component.html',
   styleUrls: ['./skills.component.css'],
   providers: [SkillService]
 })
 export class SkillsComponent {
-  public skills;
-  public selectedSkills;
-  addSkill(skillObject){
 
+   public showButtons: boolean = false;
+    public value: number = 5;
+    public min: number = 0;
+    public max: number = 10;
+    public smallStep: number = 1;
+
+  skills;
+  selectedSkills;
+  rate: number;
+
+  formgroup: FormGroup;
+  //skillsFormControl: FormControl;
+  
+
+  ngOnInit() {
+    // this.skillsFormControl = new FormControl("", Validators.required);
+     console.log(this.formgroup);
+    // this.formgroup.addControl('skillsFormControl', this.skillsFormControl)
+    // console.log(this.formgroup);
+  }
+
+
+
+
+  addSkill(skillObject){
+    skillObject.rate = 0;
     let isDuplicate = false;
     for(var iterator = 0; iterator < this.selectedSkills.length; iterator++) {
-        if(skillObject["skills"]==this.selectedSkills[iterator]["skills"]){
+        if(skillObject["skill"]==this.selectedSkills[iterator]["skill"]){
           isDuplicate = true;
           break;
         }
@@ -26,7 +50,7 @@ export class SkillsComponent {
     if(!isDuplicate){
       this.selectedSkills.push(skillObject)
       for(var iterator = 0; iterator < this.skills["__zone_symbol__value"].length; iterator++) {
-        if(skillObject.skills==this.skills["__zone_symbol__value"][iterator].skills){
+        if(skillObject.skill==this.skills["__zone_symbol__value"][iterator].skill){
           this.skills["__zone_symbol__value"].splice(iterator, 1)
           break;
         }
@@ -38,13 +62,11 @@ export class SkillsComponent {
 
   removeSkill(object){
     for(let iterator = 0; iterator < this.selectedSkills.length; iterator++) {
-        if(object.skills==this.selectedSkills[iterator]["skills"]){
+        if(object.skill==this.selectedSkills[iterator]["skill"]){
           this.selectedSkills.splice(iterator, 1);
           this.skills["__zone_symbol__value"].push(object)
         }
     }
-    // console.log(this.skills);
-    console.log(this.selectedSkills);
   }
   //@Input()
   //OtherComponent:OtherComponent;
