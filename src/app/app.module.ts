@@ -5,6 +5,9 @@ import { HttpModule } from '@angular/http';
 import { ButtonsModule } from '@progress/kendo-angular-buttons';
 import { InputsModule } from '@progress/kendo-angular-inputs';
 import { ChartsModule } from '@progress/kendo-angular-charts';
+import { LayoutModule } from '@progress/kendo-angular-layout';
+import { UploadModule } from '@progress/kendo-angular-upload';
+import { UPLOAD_DIRECTIVES } from 'ng2-uploader/ng2-uploader';
 
 import { AppComponent } from './app.component';
 import { routing } from './app.routing';
@@ -12,9 +15,9 @@ import { routing } from './app.routing';
 import { OtherComponent } from './other/other.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SkillsComponent } from './skills/skills.component';
-import { SkillsscoreComponent } from './skillsscore/skillsscore.component';
 import { SkillMatrixProfileComponent } from './skill-matrix-profile/skill-matrix-profile.component';
-import { UserListComponent } from './user-list/user-list.component';
+import { TestcomponentComponent } from './testcomponent/testcomponent.component';
+import {APP_BASE_HREF} from '@angular/common';
 
 
 
@@ -24,9 +27,9 @@ import { UserListComponent } from './user-list/user-list.component';
     OtherComponent,
     ProfileComponent,
     SkillsComponent,
-    SkillsscoreComponent,
     SkillMatrixProfileComponent,
-    UserListComponent
+    TestcomponentComponent,
+    UPLOAD_DIRECTIVES
   ],
   imports: [
     BrowserModule,
@@ -36,9 +39,11 @@ import { UserListComponent } from './user-list/user-list.component';
     ReactiveFormsModule,
     HttpModule,
     routing,
-    ChartsModule
+    ChartsModule,
+    LayoutModule,
+    UploadModule
   ],
-  providers: [],
+  providers: [{provide: APP_BASE_HREF, useValue: '/skillset/app'}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

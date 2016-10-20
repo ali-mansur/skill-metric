@@ -86,3 +86,45 @@
     width: 228px;
     vertical-align: middle;
 }
+
+
+textarea{
+
+    color: rgb(101, 101, 101);
+    border-color: rgba(0, 0, 0, 0.0784314);
+    width: 100%;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    height: 100px;
+
+}
+
+.required{
+    color: red;
+}
+
+.skill{
+    padding: 5px;
+}
+
+.rate-urself-div{
+    float:left; 
+    width:100%;
+}
+
+.clear{
+    clear: both;
+}
+
+
+.k-tabstrip .k-item .k-link {
+     color: #656565 !important; 
+}
+
+:host >>> .k-tabstrip .k-item.k-state-active .k-link {
+    font-weight: bold !important;
+}
+
+:host >>> .k-tabstrip .k-item .k-link {
+     color: #656565 !important; 
+}

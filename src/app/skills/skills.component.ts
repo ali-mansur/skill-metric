@@ -1,19 +1,25 @@
-import { Input, Component, OnInit } from '@angular/core';
+import { Input, Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Observable }        from 'rxjs/Observable';
 import { Subject }           from 'rxjs/Subject';
 import { SkillService }  from './skills.service';
-import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import { FormsModule, FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import { ButtonsModule } from '@progress/kendo-angular-buttons';
+import { LayoutModule } from '@progress/kendo-angular-layout';
+
 
 @Component({
   selector: 'app-skills',
-  inputs: ['skills:skills', 'selectedSkills:selectedSkills','removeall:removeall', 'formgroup'],
+  inputs: ['skills:skills', 'selectedSkills:selectedSkills','removeall:removeall', 'formgroup: formgroup', 'pcfs: pcfs', 'microservices: microservices', 'isFormSubmitted'],
   templateUrl: './skills.component.html',
   styleUrls: ['./skills.component.css'],
+  encapsulation:ViewEncapsulation.Emulated,
   providers: [SkillService]
 })
 export class SkillsComponent {
 
-   public showButtons: boolean = false;
+    
+
+    public showButtons: boolean = false;
     public value: number = 5;
     public min: number = 0;
     public max: number = 10;
@@ -24,14 +30,13 @@ export class SkillsComponent {
   rate: number;
 
   formgroup: FormGroup;
-  //skillsFormControl: FormControl;
+  skills_ach_cert_desc: FormControl;
   
 
   ngOnInit() {
-    // this.skillsFormControl = new FormControl("", Validators.required);
-     console.log(this.formgroup);
-    // this.formgroup.addControl('skillsFormControl', this.skillsFormControl)
-    // console.log(this.formgroup);
+    this.skills_ach_cert_desc = new FormControl("", Validators.required);
+    console.log(this.formgroup);
+    this.formgroup.addControl('skills_ach_cert_desc', this.skills_ach_cert_desc)
   }
 
 

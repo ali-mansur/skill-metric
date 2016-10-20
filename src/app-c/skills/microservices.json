@@ -1,0 +1,22 @@
+[
+  {
+    "_id": 1,
+    "service": "micro service - 1"
+  },
+  {
+    "_id": 2,
+    "service": "micro service - 2"
+  },
+  {
+    "_id": 3,
+    "service": "micro service - 3"
+  },
+  {
+    "_id": 4,
+    "service": "micro service - 4"
+  },
+  {
+    "_id": 5,
+    "service": "micro service - 5"
+  }
+]

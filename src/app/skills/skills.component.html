@@ -1,25 +1,66 @@
 
 <div class="form-group skills-component" [formGroup]="formgroup">
-
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+<script type="text/javascript">
+  new WOW().init();
+</script>
 	<div>
 		<h4>
-			Choose your skill(s) below
+			User Skill(s)
 		</h4>
-	
-		<div class="row">
-		  <div *ngFor="let item of skills | async" class="col-sm-4">
-		  	<input type="checkbox" (click)="addSkill(item)" name="skill" style="padding: 5px;"> {{item.skill}}
-		  </div>
+
+		<h5>
+			 Little Description | Certifications | Achievements
+		</h5>
+
+		<div>
+			<p [hidden]="skills_ach_cert_desc.valid || !isFormSubmitted" class="required"> * required </p>
+			<textarea formControlName="skills_ach_cert_desc"></textarea>
 		</div>
+
+		<h5>
+			Or select from list below
+		</h5>
+
+		<div>	
+			<kendo-tabstrip color="#337ab7">  <!-- [selected]="true" -->
+		       <kendo-tabstrip-tab [selected]="true" [title]="'UI'">
+		            
+		            <div class="row">
+					  <div *ngFor="let item of skills | async" class="col-sm-3">
+					  	<input type="checkbox" (click)="addSkill(item)" name="skill" class="skill"> {{item.skill}}
+					  </div>
+					</div>
+					
+		       </kendo-tabstrip-tab>
+
+		       <kendo-tabstrip-tab [title]="'PCF'" >
+		       			{{ pcfs}}
+		             <div *ngFor="let item of pcfs | async" class="col-sm-3">
+					  	<input type="checkbox"  name="skill" class="skill"> {{item.pcf}}
+					  </div>
+		       </kendo-tabstrip-tab>
+
+		       <kendo-tabstrip-tab [title]="'Micro Services'">
+		            <span class="rainy">&nbsp;</span>
+		            	create json file for Microservices and load the content using http service for Microservices
+		           	<span class="rainy">&nbsp;</span>
+		       </kendo-tabstrip-tab>
+
+		     </kendo-tabstrip>
+		</div>
+		
+		<!-- <input formControlName="skillsFormControl"> -->
+		
 		<ng-content></ng-content>
 	</div>
 
-	<br><br>
+
 
 	<!-- *ngIf="selectedSkills.length" -->
 	<div *ngIf="selectedSkills.length" class="selected-skills-container">
-	<link rel="stylesheet" href="http://www.telerik.com/kendo-angular-ui/npm/node_modules//@telerik/kendo-theme-default/dist/all.css" />
-		<div style="float:left; width:100%;">
+	
+		<div class="rate-urself-div">
 			<p class="pull-left">
 				 * Rate yourself out of 10 for Selected Skill(s)
 			</p>
@@ -31,9 +72,8 @@
 		
 		<div>
 	 		<ul>
-				<li *ngFor="let object of selectedSkills" class="selected-skill">
+				<li *ngFor="let object of selectedSkills" class="selected-skill wow slideInRight" >
 					<span class="skill-name">{{object.skill}} </span>
-					<!-- <input type="number" style="width: 80px" min="0" max="10" [(ngModel)]="object.rate" [ngModelOptions]="{standalone: true}"> -->
 
 					<!-- [incrementTitle]="'Inc'"
 				            [decrementTitle]="'Dec'" -->
@@ -51,9 +91,8 @@
 					<span (click)="removeSkill(object)" class="remove-skill" title="deselect"> x</span>
 				</li>
 			</ul>
-			<div style="clear: both;"></div>
+			<div class="clear"></div>
 		</div>
-		
 		
 	</div>
 

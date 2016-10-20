@@ -1,45 +1,40 @@
-<div class="">
+<div class="form-group" [formGroup]="formgroup">
+	<h4>User Information</h4>
+	
+	<div class="text-center">
+		<img src="../../assets/images/defaultDP.jpeg" class="img-circle" alt="profile picture">
+	</div>
 
-	<div class="form-group" [formGroup]="formgroup">
-		<h4>
-			User Information
-		</h4>
-		
-		<div class="text-center">
-			<img src="../../assets/images/defaultDP.jpeg" class="img-circle" alt="profile picture" width="100" height="100">
-		</div>
+	<!-- <kendo-upload
+	    [saveUrl]="uploadSaveUrl"
+	    [removeUrl]="uploadRemoveUrl"
+	    [autoUpload]="false"
+	    (select)="selectEventHandler($event)"
+	  ></kendo-upload> -->
 
-		<br><br>
+	<div class="form-group">
+	    <label class="control-label col-md-4">Name: </label>
+	    <div class="input-group col-md-6">
+	      <input formControlName="name">
+	      <p [hidden]="name.valid || !isFormSubmitted" class="required"> * required </p> 
+	    </div>
+	</div> 
 
+	<div class="form-group">
+	    <label class="control-label col-md-4">Domain: </label>
+	    <div class="input-group col-md-6">
+	      <input formControlName="department">
+	      <p [hidden]="department.valid || !isFormSubmitted" class="required"> * required </p>
+	    </div>
+	</div> 
 
-		<div class="form-group">
-		    <label class="control-label col-md-3">Name: </label>
-		    <div class="input-group col-md-6">
-		      <!-- <input [(ngModel)]="user.name" name="name" class="form-control" placeholder="Full Name" required> -->
-		      <input formControlName="name">
-		    </div>
-		</div> 
-
-		<div class="form-group">
-		    <label class="control-label col-md-3">Domain: </label>
-		    <div class="input-group col-md-6">
-		      <!-- <input [(ngModel)]="user.department" name="department" class="form-control" placeholder="Domain / Verticle" required> -->
-		      <input formControlName="department">
-		    </div>
-		</div> 
-
-		<div class="form-group">
-		    <label class="control-label col-md-3">Designation: </label>
-		    <div class="input-group col-md-6">
-		      <!-- <input [(ngModel)]="user.designation" name="designation" class="form-control" placeholder="Designation / Role" required> -->
-		      <input formControlName="designation">
-		    </div>
-		</div>
-
-		<!-- <p class="col-md-offset-3">
-            <button type="submit" [disabled]="!form.valid" >Submit</button>
-        </p>  -->
-
+	<div class="form-group">
+	    <label class="control-label col-md-4">Designation: </label>
+	    <div class="input-group col-md-6">
+	      <input formControlName="designation">
+	      <p [hidden]="designation.valid || !isFormSubmitted" class="required"> * required </p>
+	    </div>
 	</div>
 
 </div>
+

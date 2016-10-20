@@ -1,0 +1,54 @@
+<div class="skill-matrix-profile-container container">
+	<div class="skill-matrix-profile-wrapper col-xs-12" >
+		<h1>Profile Introduction - Skill Matrix</h1>
+		<div class="row">
+			<div class="col-sm-6 col-xs-12 left-col">
+				<div class="profile-image-box">
+					<img class="img-circle img-responsive" src="../../assets/images/defaultDP.jpeg" />	
+				</div>
+				<div class="profile-left-data">
+					<h2 class="profile-name">{{ returnObject.name }}</h2>
+					<p class="profile-designation">{{ returnObject.designation }}</p>
+				</div>
+			</div>
+			<div class="col-sm-6 col-xs-12 right-col">
+				<h3>Skills</h3>
+				<div class="profile-skills">
+					<ul>
+						<li *ngFor= "let skillItem of returnObject.skills">{{ skillItem.skill }}</li>
+					</ul>
+				</div>
+				<div class="profile-skills-graph-container">
+					<kendo-chart>
+					<kendo-chart-title text="{{ returnObject.designation }} Score card - {{ chartObject.getTotalSum }}% Match" ></kendo-chart-title>
+					<!-- <kendo-chart-panes>
+              <kendo-chart-pane [height]="100">
+              </kendo-chart-pane>
+</kendo-chart-panes> -->
+						<kendo-chart-value-axis>
+							<kendo-chart-value-axis-item [title]="{ text: 'Score' }" [min]="0" [max]="11" >
+							</kendo-chart-value-axis-item>
+						</kendo-chart-value-axis>
+						<kendo-chart-series-defaults type="bar">
+						            <kendo-chart-series-defaults-labels format="">
+						            </kendo-chart-series-defaults-labels>
+						          </kendo-chart-series-defaults>
+						<kendo-chart-category-axis>
+							<kendo-chart-category-axis-item  [categories]="chartObject.skills">
+							</kendo-chart-category-axis-item>
+						</kendo-chart-category-axis>
+
+						<kendo-chart-series>
+							<kendo-chart-series-item color="#337ab7" [data]="chartObject.rates" type="bar" [border]="{ width: 0 }">
+							</kendo-chart-series-item>
+
+						</kendo-chart-series>
+					</kendo-chart>
+				</div>
+			</div>
+		</div> 
+		<div class="text-right container" style="padding-bottom: 20px;">
+			<button (click)="onButtonClick()">Finish</button>
+		</div>
+	</div>
+</div>

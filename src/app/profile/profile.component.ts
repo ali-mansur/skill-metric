@@ -3,19 +3,29 @@ import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms'
 
 @Component({
   selector: 'app-profile',
-  inputs: ['formgroup'],
+  inputs: ['formgroup', 'isFormSubmitted'],
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent  {
+
+	//http://localhost:4000/assets/images/dp-2.jpg
+	uploadSaveUrl: string = "http://localhost:4000/upload/";
+  	
+
 
 	submit(){
 		//console.log(this.user);
 		window.location.href = "/profile";
 	}
 
-	formgroup: FormGroup;
-  	name: FormControl;
+	selectEventHandler(e: SelectEvent) {
+		console.log("file");
+		console.log(e);
+	}
+
+	public formgroup: FormGroup;
+  	public name: FormControl;
   	department: FormControl;
   	designation: FormControl;
   

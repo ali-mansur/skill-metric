@@ -1,0 +1,27 @@
+<div>
+	<form [formGroup]="form" (ngSubmit)="onSubmit()" >
+		<div class="container">
+			<div class="col-lg-5">
+				<app-profile [formgroup]= "form">
+				</app-profile>
+			</div>
+
+			<div class="col-lg-7">
+				<div>
+					<app-skills [formgroup]= "form" [skills]="skillComponentObject.skills" [selectedSkills]="skillComponentObject.selectedSkills" [removeall] = 'removeall' [pcfs]="skillComponentObject.pcfs" [microservices]="skillComponentObject.microservices">
+					</app-skills>
+				</div>
+				<div>
+					<!-- <app-skillsscore [selectedSkills]="skillComponentObject.selectedSkills">
+					</app-skillsscore> -->
+				</div>
+			</div>
+		</div>
+
+		<div class="text-right container">
+			<button type="submit" >Submit</button> <!-- [disabled]="!form.valid" -->
+			<!-- <button kendoButton (click)="onButtonClick()" [primary]=true>Submit</button> -->
+		</div>
+
+	</form>
+</div>
